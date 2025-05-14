@@ -1,0 +1,7 @@
+~ start_talk_to_dad
+Dad: Good morning! It's time for school, lets get ready. 
+- What do I need to do?
+	Dad: Head to your closet to pick out your clothes. Make sure to keep your comfort level high and your anger low! => END
+- Ok...
+	Dad: See you soon. => END
+=> END
