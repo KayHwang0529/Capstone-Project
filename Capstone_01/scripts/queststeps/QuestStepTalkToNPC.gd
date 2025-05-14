@@ -4,6 +4,10 @@ class_name TalkStep extends QuestStep
 
 var talked := false
 
+func ready() -> void:
+	var dialogue_manager = Engine.get_singleton("DialogueManager")
+	dialogue_manager.dialogue_ended.connect(_on_dialogue_finished, CONNECT_DEFERRED)
+
 func _on_dialogue_finished(resource: DialogueResource) -> void:
 	if resource == npc_dialogue_resource:
 		talked = true

@@ -40,6 +40,8 @@ func get_first_uncompleted_step() -> QuestStep:
 
 
 func _update_step(step: QuestStep) -> void:
+	if step.meets_condition():
+		step.completed = true
 	step_updated.emit(step)
 
 
