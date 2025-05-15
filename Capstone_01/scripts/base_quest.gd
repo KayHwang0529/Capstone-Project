@@ -5,12 +5,13 @@ class_name BaseQuestResource
 signal step_updated(step: QuestStep)
 
 @export var steps: Array[QuestStep]
-
+var index = 0
+var current_step
 
 func start(_args: Dictionary = {}) -> void:
-	for step: QuestStep in steps:
-		step.ready()
-		step.updated.connect(_update_step.bind(step))
+	current_step = steps[index]
+	current_step.ready()
+	current_step.updated.connect(_update_step.bind(current_step))
 	started.emit()
 
 func get_quest_step(index: int) -> QuestStep:
@@ -42,7 +43,8 @@ func get_first_uncompleted_step() -> QuestStep:
 func _update_step(step: QuestStep) -> void:
 	if step.meets_condition():
 		step.completed = true
-	step_updated.emit(step)
+		index += 1
+		step_updated.emit(step)
 
 
 func serialize() -> Dictionary:
