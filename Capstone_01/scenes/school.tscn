@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://cmjtq8a2p27rj"]
+[gd_scene load_steps=11 format=4 uid="uid://cmjtq8a2p27rj"]
 
 [ext_resource type="Script" path="res://scripts/base_scene.gd" id="1_y11yw"]
 [ext_resource type="PackedScene" uid="uid://budhjxuael13w" path="res://scenes/bully.tscn" id="2_bjfnq"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bnm7uyc1rvgsk" path="res://scenes/chair.tscn" id="3_r02d8"]
 [ext_resource type="PackedScene" uid="uid://c05nsgsuujwwu" path="res://scenes/desk.tscn" id="3_xd0e0"]
 [ext_resource type="PackedScene" uid="uid://bvsps1ncdhdce" path="res://scenes/scene_trigger.tscn" id="5_w0x6y"]
+[ext_resource type="PackedScene" uid="uid://dserf0tqytnug" path="res://scenes/headphones.tscn" id="7_quch5"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_o5wsn"]
 a = Vector2(551, 344)
@@ -1031,5 +1032,13 @@ position = Vector2(418, 125)
 
 [node name="desk5" parent="Desks" instance=ExtResource("3_xd0e0")]
 position = Vector2(426, 212)
+
+[node name="headphones" parent="." instance=ExtResource("7_quch5")]
+z_index = 2
+offset_left = 260.0
+offset_top = 116.0
+offset_right = 1248.0
+offset_bottom = 1104.0
+scale = Vector2(0.0871541, 0.105651)
 
 [connection signal="body_entered" from="SceneTrigger" to="SceneTrigger" method="_on_body_entered"]

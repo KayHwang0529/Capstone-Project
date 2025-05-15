@@ -14,6 +14,7 @@ var isOpen: bool = false
 func _ready():
 	inv.update.connect(update_slots)
 	update_slots()
+	
 
 func is_array_effectively_empty(arr: Array) -> bool:
 	for element in arr:
@@ -24,15 +25,27 @@ func is_array_effectively_empty(arr: Array) -> bool:
 func update_slots():
 	if !is_array_effectively_empty(slots):
 		for i in range (min(inv.items.size(), slots.size())):
-			slots[i].update(inv.items[i]) 
-		
+			slots[i] = (inv.items[i]) 
+
 
 func _process(delta: float) -> void:
 	comfort_bar.value = Status.comfort
 	anxiety_bar.value = Status.anxiety
 	anger_bar.value = Status.anger
 	energy_bar.value = Status.energy 
+	update_slots()
+
 	
+func update_status():
+	if !is_array_effectively_empty(slots):
+		for i in range (min(inv.items.size(), slots.size())):
+			if (inv.items[i] == TrenchCoat):
+				Status.comfort -= 20
+				Status.anxiety -= 50
+			elif inv.items[i] == Headphones:
+				Status.comfort +=50
+				Status.anxiety -= 40 
+			
 func _change_color(bar):
 	var sb = StyleBoxFlat.new()
 	add_theme_stylebox_override("fill", sb)

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="BaseQuestResource" load_steps=10 format=3 uid="uid://kw75cfi6tvxx"]
+[gd_resource type="Resource" script_class="BaseQuestResource" load_steps=11 format=3 uid="uid://kw75cfi6tvxx"]
 
 [ext_resource type="Script" path="res://scripts/base_quest.gd" id="1_3n2qf"]
 [ext_resource type="Script" path="res://scripts/quest_step.gd" id="2_6nfrw"]
@@ -14,22 +14,27 @@ title = "Talk to Dad in the Kitchen
 "
 completed = false
 
-[sub_resource type="Resource" id="Resource_rdpgu"]
+[sub_resource type="Resource" id="Resource_37uno"]
 script = ExtResource("3_v41h5")
 _id = "5"
 
 [sub_resource type="Resource" id="Resource_5w58i"]
 script = ExtResource("5_o2l51")
-item = SubResource("Resource_rdpgu")
+item = SubResource("Resource_37uno")
 title = "Balance Your Stats by Equipping Clothes
 "
+completed = false
+
+[sub_resource type="Resource" id="Resource_vxhy5"]
+script = ExtResource("2_6nfrw")
+title = "Head to the Door!"
 completed = false
 
 [resource]
 resource_local_to_scene = true
 resource_name = "Get Ready"
 script = ExtResource("1_3n2qf")
-steps = Array[ExtResource("2_6nfrw")]([SubResource("Resource_4gec8"), SubResource("Resource_5w58i")])
+steps = Array[ExtResource("2_6nfrw")]([SubResource("Resource_4gec8"), SubResource("Resource_5w58i"), SubResource("Resource_vxhy5")])
 id = 0
 quest_name = "Get Ready For School"
 quest_description = "Time to Get Ready for the Day"

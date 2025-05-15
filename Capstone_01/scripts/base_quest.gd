@@ -80,3 +80,4 @@ func update(_args: Dictionary = {}) -> void:
 	# Check if all steps are done
 	if steps.all(func(s): return s.completed):
 		objective_completed = true
+		print("done")

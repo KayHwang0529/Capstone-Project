@@ -1,4 +1,4 @@
-class_name TrenchCoat extends Button
+class_name Headphones extends Button
 
 @export var item: ItemEntity
 var inv: Inv = preload("res://playerInv.tres")
@@ -16,7 +16,6 @@ func _process(delta: float) -> void:
 
 func _on_pressed() -> void:
 	inv.insert(item)
-	$".".visible = false
 
 
 	return
