@@ -43,8 +43,11 @@ func get_first_uncompleted_step() -> QuestStep:
 func _update_step(step: QuestStep) -> void:
 	if step.meets_condition():
 		step.completed = true
-		index += 1
 		step_updated.emit(step)
+		index += 1
+		current_step = steps[index]
+		current_step.ready()
+		current_step.updated.connect(_update_step.bind(current_step))
 
 
 func serialize() -> Dictionary:

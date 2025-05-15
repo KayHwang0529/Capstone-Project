@@ -6,7 +6,7 @@ var inv: Inv = preload("res://playerInv.tres")
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func ready() -> void:
 	print("here")
 	meetsCondition()
 
