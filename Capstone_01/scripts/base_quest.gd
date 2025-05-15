@@ -45,6 +45,9 @@ func _update_step(step: QuestStep) -> void:
 		step.completed = true
 		step_updated.emit(step)
 		index += 1
+		if index >= steps.size():
+			completed.emit()
+			return
 		current_step = steps[index]
 		current_step.ready()
 		current_step.updated.connect(_update_step.bind(current_step))
