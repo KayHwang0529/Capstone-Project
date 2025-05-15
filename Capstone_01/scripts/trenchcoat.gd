@@ -15,5 +15,5 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_pressed() -> void:
-	inv.insert(instance)
+	inv.insert(item)
 	return

@@ -1737,3 +1737,4 @@ scale = Vector2(0.280673, 0.278233)
 
 [connection signal="body_entered" from="SceneTrigger" to="SceneTrigger" method="_on_body_entered"]
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="pressed" from="trenchcoat" to="trenchcoat" method="_on_pressed"]

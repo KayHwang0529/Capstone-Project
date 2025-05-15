@@ -5,7 +5,10 @@ class_name Inv extends Resource
 signal update 
 
 func insert (item: ItemEntity):
-	for i in items:
-		if i.is_empty():
-			i = item
+	items[0] = item
+	print(items)
 	
+func contains (item: ItemEntity):
+	if items[0] == item:
+		return true
+	return false

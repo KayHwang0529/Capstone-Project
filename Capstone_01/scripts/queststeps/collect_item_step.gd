@@ -5,14 +5,15 @@ var collected = false
 var inv: Inv = preload("res://playerInv.tres")
 
 
-# Called when the node enters the scene tree for the first time.
 func ready() -> void:
-	print("here")
-	meetsCondition()
+	is_collected()
+
+func is_collected():
+	collected = inv.contains(item)
+	print(inv.items[0])
+	if collected:
+		emit_signal("updated")
 
 	
 func meetsCondition() -> bool:
-	collected = inv.contains(item)
-	if collected:
-		return true
-	return false
+	return collected
