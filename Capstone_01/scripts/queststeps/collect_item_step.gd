@@ -20,8 +20,5 @@ func new_inv_item(new_item):
 		is_collected()
 		emit_signal("updated")
 
-
-func meetsCondition() -> bool:
-	print(collected)
+func meets_condition() -> bool:
 	return collected
-	

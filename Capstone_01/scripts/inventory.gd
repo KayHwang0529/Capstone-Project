@@ -11,8 +11,6 @@ func insert (item: ItemEntity):
 	item_inserted.emit(item)
 	
 func contains (item: ItemEntity):
-	print(items[0])
-	print(item)
 	if items[0].get_entity_id() == item.get_entity_id():
 		return true
 	return false
