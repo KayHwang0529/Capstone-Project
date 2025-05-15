@@ -64,3 +64,14 @@ func deserialize(data: Dictionary) -> void:
 	data.erase("steps")
 	for key in data.keys():
 		set(key, data[key])
+		
+func update(_args: Dictionary = {}) -> void:
+	for step in steps:
+		if not step.completed:
+			if step.meets_condition():
+				step.completed = true
+				step_updated.emit(step)
+			break
+	# Check if all steps are done
+	if steps.all(func(s): return s.completed):
+		objective_completed = true

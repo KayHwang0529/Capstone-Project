@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://01r6a4oclils"]
+[gd_scene load_steps=16 format=4 uid="uid://01r6a4oclils"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_x82yh"]
 [ext_resource type="Texture2D" uid="uid://bavyd6m0cjvkn" path="res://assests/sprites/tilesets/House_cap.png" id="2_5m5dj"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://scripts/canvas_layer.gd" id="6_o2rrp"]
 [ext_resource type="Script" path="res://scenes/talk_dad_button.gd" id="9_eb3k7"]
 [ext_resource type="PackedScene" uid="uid://byg8rcdi4rw2k" path="res://scenes/ui.tscn" id="11_wett5"]
+[ext_resource type="PackedScene" uid="uid://diffochb3k3ku" path="res://scenes/trenchcoat.tscn" id="12_b3hjo"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_5udm1"]
 a = Vector2(775, 81)
@@ -1706,6 +1707,7 @@ position = Vector2(2, -8)
 position = Vector2(1298, 825)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("6_o2rrp")
 
 [node name="status_window" parent="CanvasLayer" instance=ExtResource("6_8fppk")]
@@ -1724,6 +1726,14 @@ text = "Talk to Dad"
 script = ExtResource("9_eb3k7")
 
 [node name="UI" parent="." instance=ExtResource("11_wett5")]
+
+[node name="trenchcoat" parent="." instance=ExtResource("12_b3hjo")]
+z_index = 2
+offset_left = 151.0
+offset_top = 2.0
+offset_right = 1139.0
+offset_bottom = 990.0
+scale = Vector2(0.280673, 0.278233)
 
 [connection signal="body_entered" from="SceneTrigger" to="SceneTrigger" method="_on_body_entered"]
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

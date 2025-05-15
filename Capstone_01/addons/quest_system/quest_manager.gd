@@ -135,7 +135,6 @@ func is_quest_available(quest: Quest) -> bool:
 		return true
 	return false
 
-
 ## Returns true if the given quest is inside the active pool,
 ## false otherwise
 func is_quest_active(quest: Quest) -> bool:

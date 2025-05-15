@@ -1,8 +1,9 @@
 class_name TrenchCoat extends Button
 
 @export var item: ItemEntity
-
+var inv: Inv = preload("res://playerInv.tres")
 var instance : ItemEntity
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if item:
@@ -14,5 +15,5 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_pressed() -> void:
-	
+	inv.insert(instance)
 	return
