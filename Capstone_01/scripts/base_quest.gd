@@ -8,11 +8,13 @@ signal step_updated(step: QuestStep)
 var index = 0
 var current_step
 
+
 func start(_args: Dictionary = {}) -> void:
 	current_step = steps[index]
 	current_step.ready()
 	current_step.updated.connect(_update_step.bind(current_step))
 	started.emit()
+
 
 func get_quest_step(index: int) -> QuestStep:
 	if index > steps.size():

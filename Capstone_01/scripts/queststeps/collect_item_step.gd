@@ -4,7 +4,6 @@ class_name CollectItemStep extends QuestStep
 var collected = false
 var inv: Inv = preload("res://playerInv.tres")
 var instance: ItemEntity
-		
 
 func ready() -> void:
 	instance = item.instantiate()

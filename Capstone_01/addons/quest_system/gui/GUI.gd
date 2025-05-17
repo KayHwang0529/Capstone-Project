@@ -3,8 +3,8 @@ extends CanvasLayer
 var _quest: Quest
 var current_step_index: int = 0
 
-@onready var currentQuest_label = $VBoxContainer/currentQuest
-@onready var step_title_label = $VBoxContainer/StepTitle
+@onready var currentQuest_label = $Panel/VBoxContainer/currentQuest
+@onready var step_title_label = $Panel/VBoxContainer/StepTitle
 
 func _ready() -> void:
 	# Connect to signals for quest updates

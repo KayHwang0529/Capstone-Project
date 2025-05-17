@@ -26,6 +26,7 @@ func update_slots():
 	if !is_array_effectively_empty(slots):
 		for i in range (min(inv.items.size(), slots.size())):
 			slots[i] = (inv.items[i]) 
+			print(slots)
 
 
 func _process(delta: float) -> void:
