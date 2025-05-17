@@ -1,6 +1,7 @@
 extends Node
 class_name BaseScene
 
+@export var item: ItemEntity
 @onready var player: Player = $Player
 @onready var entrance_markers: Node2D = $EntranceMarkers
 @onready var anxiety_layer = $TileMapLayer
@@ -8,7 +9,7 @@ class_name BaseScene
 
 var my_quest: Quest = preload("res://quests/get_through_the_day.tres") 
 var inv: Inv = preload("res://playerInv.tres")
-var item = Headphones
+
 var instance : ItemEntity
 
 # Called when the node enters the scene tree for the first time.
