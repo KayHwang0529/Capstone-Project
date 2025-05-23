@@ -49,7 +49,7 @@ func _update_step(step: QuestStep) -> void:
 		step_updated.emit(step)
 		index += 1
 		if index >= steps.size():
-			completed.emit()
+			QuestSystem.complete_quest(self)
 			return
 		current_step = steps[index]
 		current_step.ready()
