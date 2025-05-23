@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://01r6a4oclils"]
+[gd_scene load_steps=21 format=4 uid="uid://01r6a4oclils"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_x82yh"]
 [ext_resource type="Texture2D" uid="uid://bavyd6m0cjvkn" path="res://assests/sprites/tilesets/House_cap.png" id="2_5m5dj"]
@@ -1659,6 +1659,9 @@ texture = ExtResource("6_bb13q")
 sources/0 = SubResource("TileSetAtlasSource_41m5n")
 sources/1 = SubResource("TileSetAtlasSource_u2uhn")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_54otf"]
+size = Vector2(61, 112)
+
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_x82yh")
@@ -1721,6 +1724,7 @@ position = Vector2(1298, 825)
 script = ExtResource("6_o2rrp")
 
 [node name="status_window" parent="CanvasLayer" instance=ExtResource("6_8fppk")]
+visible = false
 offset_left = 192.0
 offset_top = 168.0
 offset_right = 192.0
@@ -1754,6 +1758,15 @@ stream = ExtResource("14_q7wp0")
 volume_db = 4.301
 autoplay = true
 
+[node name="SceneTrigger2" parent="." instance=ExtResource("3_243u5")]
+position = Vector2(130, 186)
+connected_scene = "HomeScreen"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneTrigger2"]
+position = Vector2(2.5, 4)
+shape = SubResource("RectangleShape2D_54otf")
+
 [connection signal="body_entered" from="SceneTrigger" to="SceneTrigger" method="_on_body_entered"]
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
 [connection signal="pressed" from="trenchcoat" to="trenchcoat" method="_on_pressed"]
+[connection signal="body_entered" from="SceneTrigger2" to="SceneTrigger2" method="_on_body_entered"]
