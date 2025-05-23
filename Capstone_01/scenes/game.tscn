@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://01r6a4oclils"]
+[gd_scene load_steps=20 format=4 uid="uid://01r6a4oclils"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_x82yh"]
 [ext_resource type="Texture2D" uid="uid://bavyd6m0cjvkn" path="res://assests/sprites/tilesets/House_cap.png" id="2_5m5dj"]
@@ -10,9 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://b4meakpxks23v" path="res://scenes/status_window.tscn" id="6_8fppk"]
 [ext_resource type="Texture2D" uid="uid://bt051ne7n652a" path="res://assests/sprites/tilesets/floors/wooden.png" id="6_bb13q"]
 [ext_resource type="Script" path="res://scripts/canvas_layer.gd" id="6_o2rrp"]
-[ext_resource type="Script" path="res://scenes/talk_dad_button.gd" id="9_eb3k7"]
+[ext_resource type="Script" path="res://scripts/talk_dad_button.gd" id="9_eb3k7"]
 [ext_resource type="PackedScene" uid="uid://byg8rcdi4rw2k" path="res://scenes/ui.tscn" id="11_wett5"]
 [ext_resource type="PackedScene" uid="uid://diffochb3k3ku" path="res://scenes/trenchcoat.tscn" id="12_b3hjo"]
+[ext_resource type="AudioStream" uid="uid://bd7gu0vwtwwxy" path="res://assests/sounds/coin.wav" id="14_eq5vf"]
+[ext_resource type="AudioStream" uid="uid://dccp1jbb52v75" path="res://assests/music/time_for_adventure.mp3" id="14_q7wp0"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_5udm1"]
 a = Vector2(775, 81)
@@ -1707,7 +1709,7 @@ polygon = PackedVector2Array(-550, 342, -550, 304, -488, 306, -480, 341, -54, 34
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(-4, 20)
 scale = Vector2(1.00096, 1.07967)
-polygon = PackedVector2Array(415, 141, 413, 278, 397, 304, 83, 308, 79, 529, 381, 529, 384, 771, 349, 770, 348, 806, 319, 811, 334, 945, 230, 943, 233, 841, 129, 842, 110, 821, 112, 732, 54, 733, 52, 776, 13, 774, 11, 732, -253, 728, -259, 705, -313, 705, -317, 820, -325, 838, -663, 837, -685, 819, -685, 621, -828, 666, -903, 666, -912, 523, -722, 526, -715, 526, -682, 524, -683, 342, -842, 341, -848, 163, -585, 166, -585, 249, -484, 248, -483, 180, -52, 176, -50, 214, 9, 215, 11, 172, 342, 170, 412, 112, 517, 101, 136, -96, -329, -94, -900, -37, -1193, 350, -947, 1036, 23, 1147, 510, 954, 660, 526, 518, 100, 411, 115)
+polygon = PackedVector2Array(415, 141, 413, 278, 397, 304, 83, 308, 79, 529, 381, 529, 407.609, 768.753, 398.617, 820.621, 364.65, 819.695, 328.684, 835.44, 334, 945, 230, 943, 233, 841, 129, 842, 110, 821, 112, 732, 54, 733, 52, 776, 13, 774, 11, 732, -253, 728, -259, 705, -313, 705, -317, 820, -325, 838, -663, 837, -685, 819, -685, 621, -828, 666, -903, 666, -912, 523, -722, 526, -715, 526, -682, 524, -683, 342, -842, 341, -848, 163, -585, 166, -585, 249, -484, 248, -483, 180, -52, 176, -50, 214, 9, 215, 11, 172, 342, 170, 412, 112, 517, 101, 136, -96, -329, -94, -900, -37, -1193, 350, -947, 1036, 23, 1147, 510, 954, 660, 526, 518, 100, 411, 115)
 
 [node name="EntranceMarkers" type="Node2D" parent="."]
 position = Vector2(2, -8)
@@ -1743,6 +1745,14 @@ offset_top = 2.0
 offset_right = 1139.0
 offset_bottom = 990.0
 scale = Vector2(0.280673, 0.278233)
+
+[node name="collection_sound" type="AudioStreamPlayer2D" parent="trenchcoat"]
+stream = ExtResource("14_eq5vf")
+
+[node name="background_music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_q7wp0")
+volume_db = 4.301
+autoplay = true
 
 [connection signal="body_entered" from="SceneTrigger" to="SceneTrigger" method="_on_body_entered"]
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

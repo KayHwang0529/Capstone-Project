@@ -1,3 +1,4 @@
+
 @icon("res://addons/quest_system/assets/quest_resource.svg")
 extends Quest
 class_name BaseQuestResource
