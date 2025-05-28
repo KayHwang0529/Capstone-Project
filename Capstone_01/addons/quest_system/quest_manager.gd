@@ -43,11 +43,7 @@ func _init() -> void:
 
 	# Call the super constructor
 	super()
-
-
-
 #region: Quest API
-
 
 ## Start a given quest, and add it to the active pool
 func start_quest(quest: Quest, args: Dictionary = {}) -> Quest:

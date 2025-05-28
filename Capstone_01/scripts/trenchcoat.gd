@@ -1,3 +1,4 @@
+
 class_name TrenchCoat extends Button
 
 @export var item: ItemEntity
@@ -17,6 +18,7 @@ func _process(delta: float) -> void:
 func _on_pressed() -> void:
 	inv.insert(item)
 	$".".visible = false
+	$collection_sound.play()
 
 
 	return
